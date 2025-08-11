@@ -1,0 +1,15 @@
+.globl _boot
+.section .text
+
+_boot:
+    # Carrega o endereço do periférico (0x80000000) em t0 (x5)
+    lui x5, 0x80000        # x5 = 0x80000000
+
+    # Coloca o valor 0xAA em t1 (x6)
+    addi x6, x0, 0xAA      # x6 = 0xAA
+
+    # Escreve o valor de x6 no endereço apontado por x5
+    sw x6, 0(x5)
+
+loop:
+    j loop
